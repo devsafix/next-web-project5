@@ -19,7 +19,7 @@ const ProductCard = ({ productItem }) => {
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <img src={thumbnail} alt={title} />
+        <img className="size-40" src={thumbnail} alt={title} />
       </CardContent>
       <CardFooter className="flex justify-between">
         <p className="text-gray-900 font-bold">${price}</p>
