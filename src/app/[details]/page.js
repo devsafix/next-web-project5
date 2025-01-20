@@ -1,11 +1,17 @@
 import { fetchProductById } from "@/actions";
+import { auth } from "@/auth";
 import AddToCartButton from "@/components/add-to-cart-button";
+import { redirect } from "next/navigation";
 
 const ProductDetails = async ({ params }) => {
   const { details: id } = await params;
 
   const singleProduct = await fetchProductById(id);
   const getProductDetails = singleProduct.data;
+
+  const getSession = await auth();
+
+  if (!getSession?.user) return redirect("/unauth-page");
 
   return (
     <div className="p-20">
