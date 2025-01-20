@@ -21,3 +21,25 @@ export async function fetchAllProducts() {
     };
   }
 }
+
+export async function fetchProductById(id) {
+  try {
+    const result = await fetch(`https://dummyjson.com/products/${id}`, {
+      method: "GET",
+      cache: "no-store",
+    });
+
+    const data = await result.json();
+
+    return {
+      success: true,
+      data,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      success: false,
+      message: "Some error occurred! Please try again",
+    };
+  }
+}

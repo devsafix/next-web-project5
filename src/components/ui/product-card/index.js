@@ -9,9 +9,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "../button";
+import { useRouter } from "next/navigation";
 
 const ProductCard = ({ productItem }) => {
-  const { title, description, price, thumbnail } = productItem;
+  const { id, title, description, price, thumbnail } = productItem;
+
+  const router = useRouter();
   return (
     <Card className="w-[350px]">
       <CardHeader>
@@ -23,7 +26,7 @@ const ProductCard = ({ productItem }) => {
       </CardContent>
       <CardFooter className="flex justify-between">
         <p className="text-gray-900 font-bold">${price}</p>
-        <Button>Details</Button>
+        <Button onClick={() => router.push(`/${id}`)}>Details</Button>
       </CardFooter>
     </Card>
   );
