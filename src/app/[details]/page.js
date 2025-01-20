@@ -1,4 +1,5 @@
 import { fetchProductById } from "@/actions";
+import AddToCartButton from "@/components/add-to-cart-button";
 
 const ProductDetails = async ({ params }) => {
   const { details: id } = await params;
@@ -39,7 +40,7 @@ const ProductDetails = async ({ params }) => {
               <h3 className="text-lg font-bold text-gray-700">
                 {getProductDetails?.description}
               </h3>
-              {/* <AddToCartButton productItem={getProductDetails} /> */}
+              <AddToCartButton productItem={getProductDetails} />
             </div>
           </div>
         </div>
